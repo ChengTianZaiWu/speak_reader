@@ -1882,6 +1882,7 @@ Row(
                     },
                     behavior: HitTestBehavior.translucent,
                     child: const SizedBox(height: 48),
+                 ),
                 ),
               ],
             ),
