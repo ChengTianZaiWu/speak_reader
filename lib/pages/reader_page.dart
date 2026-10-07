@@ -1736,7 +1736,6 @@ class _ReaderPageState extends State<ReaderPage> {
                 if (_showToolbar) ...[
                 _buildToolbar(),
                 const SizedBox(height: 4),
-                ],
             // 常规模式:语速滑块;听写模式:书写停顿滑块
             Row(
               children: [
@@ -1833,6 +1832,7 @@ class _ReaderPageState extends State<ReaderPage> {
                   ),
                 ],
               ),
+            ],
             const SizedBox(height: 2),
             // 播放按钮组
 Row(
