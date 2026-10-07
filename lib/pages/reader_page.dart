@@ -1831,7 +1831,7 @@ class _ReaderPageState extends State<ReaderPage> {
               ),
             const SizedBox(height: 2),
             // 播放按钮组
-            Row(
+Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton.filledTonal(
@@ -1858,3 +1858,9 @@ class _ReaderPageState extends State<ReaderPage> {
                 ),
               ],
             ),
+          ], 
+        ), 
+      ), 
+    );
+  }
+}
