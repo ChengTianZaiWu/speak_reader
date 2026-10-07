@@ -48,6 +48,7 @@ class _ReaderPageState extends State<ReaderPage> {
   int _currentToken = -1;
   TtsState _state = TtsState.stopped;
   bool _editing = false;
+  bool _showToolbar = true; // 控制底部工具栏显示与隐藏
   // [v2.4.0] 原文模式: 有原始图片时默认 true
   bool _originalMode = false;
   bool _translating = false;
@@ -1731,8 +1732,11 @@ class _ReaderPageState extends State<ReaderPage> {
           mainAxisSize: MainAxisSize.min,
           children: [
             // [v2.6.0] 底部工具栏: 原「听写模式开关独占行」改造成一排入口按钮
-            _buildToolbar(),
-            const SizedBox(height: 4),
+                // v2.6.0 底部工具栏：根据 _showToolbar 决定是否显示
+                if (_showToolbar) ...[
+                _buildToolbar(),
+                const SizedBox(height: 4),
+                ],
             // 常规模式:语速滑块;听写模式:书写停顿滑块
             Row(
               children: [
@@ -1834,6 +1838,18 @@ class _ReaderPageState extends State<ReaderPage> {
 Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                // 左侧空白点击区（点击可切换工具栏）
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _showToolbar = !_showToolbar;
+                      });
+                    },
+                    behavior: HitTestBehavior.translucent,
+                    child: const SizedBox(height: 48),
+                  ),
+                ),
                 IconButton.filledTonal(
                   iconSize: 30,
                   onPressed: _stop,
@@ -1855,6 +1871,17 @@ Row(
                     }
                   },
                   icon: const Icon(Icons.skip_next),
+                ),
+                // 右侧空白点击区（点击可切换工具栏）
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _showToolbar = !_showToolbar;
+                      });
+                    },
+                    behavior: HitTestBehavior.translucent,
+                    child: const SizedBox(height: 48),
                 ),
               ],
             ),
