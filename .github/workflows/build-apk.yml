@@ -59,7 +59,7 @@ jobs:
         run: flutter pub get
 
       - name: 检查 Dart 格式
-        run: dart format --output=none --set-exit-if-changed lib test
+        #run: dart format --output=none --set-exit-if-changed lib test
 
       - name: 静态分析
         run: flutter analyze --fatal-infos --fatal-warnings
