@@ -1726,7 +1726,7 @@ class _ReaderPageState extends State<ReaderPage> {
     final dictation = _tts.dictationMode;
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -1831,7 +1831,7 @@ class _ReaderPageState extends State<ReaderPage> {
               ),
             const SizedBox(height: 2),
             // 播放按钮组
-            Row(
+                        Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton.filledTonal(
@@ -1840,10 +1840,10 @@ class _ReaderPageState extends State<ReaderPage> {
                   icon: const Icon(Icons.stop),
                 ),
                 const SizedBox(width: 24),
-                FloatingActionButton.large(
+                IconButton.filledTonal(
+                  iconSize: 30,
                   onPressed: _togglePlay,
-                  child:
-                      Icon(playing ? Icons.pause : Icons.play_arrow, size: 40),
+                  icon: Icon(playing ? Icons.pause : Icons.play_arrow),
                 ),
                 const SizedBox(width: 24),
                 IconButton.filledTonal(
@@ -1858,9 +1858,3 @@ class _ReaderPageState extends State<ReaderPage> {
                 ),
               ],
             ),
-          ],
-        ),
-      ),
-    );
-  }
-}
